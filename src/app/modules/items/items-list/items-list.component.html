@@ -1,7 +1,13 @@
 <div *ngFor="let item of allItem">
-  <div class="row" style="border: solid; margin-top: 10px">
-    <div class="col-sm-2">{{item.id}}</div>
-    <div class="col-sm-2">{{item.title}}</div>
-    <div class="col-sm-6">{{item.status}}</div>
-  </div>
+  <div class="row" style="border: solid; border-radius: 5px; margin-top: 30px; padding-top: 12px">
+    <div class="col-sm-1" >{{item.id}}</div>
+    <div class="col-sm-6">{{item.title}}</div>
+    <div class="col-sm-2">{{item.status}}</div>
+    <a class="btn text-primary col-sm-1" (click)="editItem(item)">
+      EDIT <i class="glyphicon glyphicon-pencil"></i>
+    </a>
+    <a class="btn text-danger col-sm-1" (click)="deleteItem(item.id)">
+      DELETE <i class="glyphicon glyphicon-trash"></i>
+    </a>
+</div>
 </div>

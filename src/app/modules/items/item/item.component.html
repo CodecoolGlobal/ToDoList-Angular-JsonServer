@@ -1,1 +1,18 @@
-<p>item works!</p>
+<div class="emp-form">
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <input placeholder="Title" class="form-control" [(ngModel)]="itemService.currentItem.title">
+    </div>
+    <div class="col-md-6 form-group">
+      <input placeholder="Status" class="form-control" [(ngModel)]="itemService.currentItem.status">
+    </div>
+    <button class="btn btn-success btn-lg btn-block" (click)="createOrUpdateItem(itemService.currentItem)">
+      <i class="fa fa-save"></i>
+      SAVE
+    </button>
+    <button class="btn btn-warning btn-lg btn-block" (click)="clearItem()">
+      <i class="fa fa-retweet"></i>
+      CLEAR
+    </button>
+  </div>
+</div>

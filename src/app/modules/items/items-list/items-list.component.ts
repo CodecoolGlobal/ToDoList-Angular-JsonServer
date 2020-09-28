@@ -27,4 +27,16 @@ export class ItemsListComponent implements OnInit {
       }
     );
   }
+
+  deleteItem(id: number): void{
+    // console.log(id);
+    this.itemService.deleteItem(id).subscribe(
+      (data: Item) => {
+        this.getAllEmployee();
+      }
+    );
+  }
+  editItem(item): void {
+    this.itemService.currentItem = Object.assign({}, item);
+  }
 }
