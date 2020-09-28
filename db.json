@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "buy a milk",
+      "status": "in-progress"
+    },
+    {
+      "id": 2,
+      "title": "do the laundry",
+      "status": "done"
+    }
+  ]
+}
