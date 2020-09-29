@@ -9,34 +9,29 @@ import {Item} from '../../../model/item.model';
 })
 export class ItemsListComponent implements OnInit {
 
-  allItem: Item[];
-
   constructor(
-    private itemService: ItemService,
-  ) {
-  }
+    public itemService: ItemService,
+  ) {}
 
   ngOnInit(): void {
-    this.getAllEmployee();
+    this.getAllItem();
   }
 
-  getAllEmployee(): void {
-    this.itemService.getAllItems().subscribe(
-      (data: Item[]) => {
-        this.allItem = data;
-      }
-    );
+  getAllItem(): void {
+    this.itemService.getAllItem();
   }
 
-  deleteItem(id: number): void{
+  deleteItem(id: number): void {
     // console.log(id);
     this.itemService.deleteItem(id).subscribe(
-      (data: Item) => {
-        this.getAllEmployee();
+      (data) => {
+        this.getAllItem();
       }
     );
   }
+
   editItem(item): void {
+    console.log(item);
     this.itemService.currentItem = Object.assign({}, item);
   }
 }

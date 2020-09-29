@@ -6,11 +6,14 @@
     <div class="col-md-6 form-group">
       <input placeholder="Status" class="form-control" [(ngModel)]="itemService.currentItem.status">
     </div>
+  </div>
+
+  <div class="row">
     <button class="btn btn-success btn-lg btn-block" (click)="createOrUpdateItem(itemService.currentItem)">
       <i class="fa fa-save"></i>
       SAVE
     </button>
-    <button class="btn btn-warning btn-lg btn-block" (click)="clearItem()">
+    <button class="btn btn-warning btn-lg btn-block" (click)="clear()">
       <i class="fa fa-retweet"></i>
       CLEAR
     </button>
