@@ -4,24 +4,35 @@ import {ItemService} from '../../shared/services/item.service';
 import {Observable} from 'rxjs';
 
 @Component({
-  selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  selector: 'app-item-form',
+  templateUrl: './item-form.component.html',
+  styleUrls: ['./item-form.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemFormComponent {
 
   constructor(
     public itemService: ItemService
   ) {
   }
 
-  ngOnInit(): void {
+  getAllItem(): void {
+    this.itemService.getAllItem();
   }
 
   createOrUpdateItem(currentItem: Item): void {
     if (currentItem.id === null) {
-      this.createItem(currentItem);
+      // this.createItem(currentItem);
+      this.itemService.createItem(currentItem).subscribe(
+        (data) => {
+          this.itemService.getAllItem();
+        }
+      );
     } else {
+      this.itemService.updateItem(currentItem).subscribe(
+        (data) => {
+          this.itemService.getAllItem();
+        }
+      );
       this.updateItem(currentItem);
     }
   }
