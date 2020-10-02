@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, Subscription} from 'rxjs';
 import {Item} from '../../../model/item.model';
+import {environment} from '../../../../environments/environment';
 
 const headerOption = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -13,7 +14,7 @@ export class ItemService {
 
   allItem: Item[];
 
-  itemsUrl: string = 'http://localhost:3000/Item';
+  itemsUrl = `${environment.apiUrl}/items`;
 
   currentItem: Item = {
     id: null,
@@ -27,7 +28,7 @@ export class ItemService {
   }
 
   getAllItem(): Subscription {
-    return this.http.get<Item[]>(this.itemsUrl, headerOption).subscribe(
+    return this.http.get<Item[]>(this.itemsUrl).subscribe(
       (data: Item[]) => {
         this.allItem = data;
         console.table(this.allItem);

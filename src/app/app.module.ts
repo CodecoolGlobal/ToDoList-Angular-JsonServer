@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {ItemsModule} from './modules/items/items.module';
+import {ItemsModule} from './modules/items.module';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
